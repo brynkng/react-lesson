@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Person from './components/Person/Person';
+import AddPerson from './components/AddPerson/AddPerson';
 import './App.css';
 
 //Stateful component
@@ -19,9 +20,23 @@ class App extends Component {
     this.setState({persons: persons})
   }
 
-  // addNewPerson
+  addPersonHandler = (event) => {
+    event.preventDefault();
+    let name = event.target.name.value,
+        age = event.target.age.value,
+        persons = [...this.state.persons];
+    
+    event.target.reset();
 
+    persons.push({id: persons.length + 1, name: name, age: age});
+    this.setState({persons: persons});
+  }
+
+  // addNewPerson
+  // filter people by name  
   // Add header and have input to change header name
+  
+  // higher order components
 
   render() {
     const persons = this.state.persons.map(person => {
@@ -33,6 +48,8 @@ class App extends Component {
         <ul>
           {persons}
         </ul>
+
+        <AddPerson addPerson={this.addPersonHandler} />
       </div>
     );
   }
