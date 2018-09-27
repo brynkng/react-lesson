@@ -9,7 +9,7 @@ class App extends Component {
     foo: 'bar',
     persons: [
       {id: 1, name: 'Bryan', age: 30},
-      {id: 2, name: 'Joe', age: 33},
+      {id: 2, name: 'Joe', age: 23},
       {id: 3, name: 'Susie', age: 37},
     ]
   }
